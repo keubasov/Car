@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Max price:
+  = @subscription.max_price
+p
+  strong Min year:
+  = @subscription.min_year
+p
+  strong Broken:
+  = @subscription.broken
+p
+  strong Type:
+  = @subscription.type
+
+= link_to 'Edit', edit_subscription_path(@subscription)
+'|
+= link_to 'Back', subscriptions_path

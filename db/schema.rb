@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160726194420) do
+ActiveRecord::Schema.define(version: 20161006171637) do
 
   create_table "brands", force: :cascade do |t|
     t.string   "name"
@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(version: 20160726194420) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.integer  "max_price"
+    t.integer  "min_year"
+    t.boolean  "broken"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "type_id"
+  end
+
+  add_index "subscriptions", ["type_id"], name: "index_subscriptions_on_type_id"
 
   create_table "towns", force: :cascade do |t|
     t.string   "name"
