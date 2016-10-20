@@ -8,14 +8,14 @@
 
   .field
     = f.label :max_price
-    = f.number_field :max_price
+    = f.number_field :max_price, max: 3000, value: 500
   .field
     = f.label :min_year
-    = f.number_field :min_year
+    = f.number_field :min_year, min: 1980, value: 2000
   .field
     = f.label :broken
     = f.check_box :broken
   .field
-    = f.label :type
-    = f.text_field :type
+    = f.label :type_id
+    = f.text_field :type_id
   .actions = f.submit

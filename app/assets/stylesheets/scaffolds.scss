@@ -1,8 +1,8 @@
 body {
-  background-color: #fff;
+  background-color: #BBBBBB;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 18px;
   line-height: 18px;
 }
 
@@ -69,5 +69,14 @@ div {
   ul li {
     font-size: 12px;
     list-style: square;
+  }
+}
+
+
+.field {
+  text-align: right;
+  width: 25%;
+  label{
+    float: left;
   }
 }
