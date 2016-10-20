@@ -31,7 +31,12 @@
         width: 100px;
       }
     }
-
+    #subheader{
+      background-color: burlywood;
+      display:flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
     #content{
       align-items: stretch;
       display: flex;
