@@ -18,7 +18,7 @@ class SubscriptionsControllerTest < ActionController::TestCase
 
   test "should create subscription" do
     assert_difference('Subscription.count') do
-      post :create, subscription: { broken: @subscription.broken, max_price: @subscription.max_price, min_year: @subscription.min_year, type: @subscription.type }
+      post :create, subscription: { broken: @subscription.broken, max_price: @subscription.max_price, min_year: @subscription.min_year, type_id: @subscription.type_id }
     end
 
     assert_redirected_to subscription_path(assigns(:subscription))
@@ -35,7 +35,7 @@ class SubscriptionsControllerTest < ActionController::TestCase
   end
 
   test "should update subscription" do
-    patch :update, id: @subscription, subscription: { broken: @subscription.broken, max_price: @subscription.max_price, min_year: @subscription.min_year, type: @subscription.type }
+    patch :update, id: @subscription, subscription: { broken: @subscription.broken, max_price: @subscription.max_price, min_year: @subscription.min_year, type_id: @subscription.type_id }
     assert_redirected_to subscription_path(assigns(:subscription))
   end
 

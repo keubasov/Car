@@ -1,0 +1,2 @@
+= label_tag 'type'
+= select_tag 'type', options_from_collection_for_select(@types, 'id', 'name', @current_type_id)

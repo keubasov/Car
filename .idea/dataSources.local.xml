@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails Car: development" uuid="c9850783-9339-4d23-badb-dc2e6e2fd65c">
+      <auth-required>false</auth-required>
+    </data-source>
+    <data-source name="Rails Car: test" uuid="d0ba521e-ef09-4204-8115-f3297d41158a" />
+  </component>
+</project>

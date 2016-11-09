@@ -15,13 +15,7 @@ html
         p.notice =notice
         p.alert =alert
       #auth
-        -if user_signed_in?
-          =current_user.username
-        -else
-          = link_to 'Sign in', new_user_session_path
-          |  or
-          br
-          = link_to 'Sign up', new_user_registration_path
+        ==render 'layouts/auth'
     #content
       #left
         =link_to 'Subscriptions', subscriptions_path

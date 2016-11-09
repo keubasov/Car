@@ -1,0 +1,2 @@
+= label_tag 'brand'
+= select_tag 'brand', options_from_collection_for_select(@brands, 'id', 'name',@current_brand_id)

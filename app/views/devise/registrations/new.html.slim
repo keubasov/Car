@@ -3,27 +3,22 @@ h2 Sign up
   = devise_error_messages!
   .field
     = f.label :username
-    br
     = f.text_field :username, autofocus: true
   .field
     = f.label :t_username
-    br
-    = f.text_field :t_username, autofocus: true
+    = f.text_field :t_username
   .field
     = f.label :password
     - if @minimum_password_length
       em
         | (#{@minimum_password_length} characters minimum)
-    br
     = f.password_field :password, autocomplete: "off"
   .field
     = f.label :password_confirmation
-    br
     = f.password_field :password_confirmation, autocomplete: "off"
   .field
-    = f.label :region_id
-    br
-    = f.text_field :region_id, autofocus: true
+    = f.label :region
+    = f.select :region_id, options_for_select(Region.all.map{|r| [r.name, r.id]})
   .actions
     = f.submit "Sign up"
   = render "devise/shared/links"

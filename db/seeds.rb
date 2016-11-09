@@ -24,13 +24,14 @@ require 'russian'
   end
 
   # fill the 'brands' and 'types' tables from 'auto.drom.ru' page
-
+  Brand.create(name: 'all')
   page = Nokogiri::HTML(open('http://auto.drom.ru/'))
   links = page.css('div.selectCars_no_script-js-open strong a')
   links.each {|link| Brand.create(name: link.text)}
   Brand.create([{name: 'Chery'}, {name: 'Citroen'},  {name: 'Peugeot'}])
   brands = Brand.all.to_a
   brands.each do |brand|
+    Type.create(name:'all', brand_id: brand.id)
     page = Nokogiri.HTML(open("http://auto.drom.ru/#{Russian.translit(brand.name)}/"))
     lines = page.css('div.selectCars_js_open h3')
     lines.each do |line|
