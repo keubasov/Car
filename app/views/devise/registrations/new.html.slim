@@ -18,7 +18,7 @@ h2 Sign up
     = f.password_field :password_confirmation, autocomplete: "off"
   .field
     = f.label :region
-    = f.select :region_id, options_for_select(Region.all.map{|r| [r.name, r.id]})
+    = f.select :region_id, options_for_select(Region.order(:name).map{|r| [r.name, r.id]})
   .actions
     = f.submit "Sign up"
   = render "devise/shared/links"

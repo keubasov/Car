@@ -7,6 +7,6 @@ class CreateSubscriptions < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    add_reference :subscriptions, :type, index: true
+    add_reference :subscriptions, :model, index: true
   end
 end

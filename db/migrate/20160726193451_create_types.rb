@@ -1,6 +1,6 @@
 class CreateTypes < ActiveRecord::Migration
   def change
-    create_table :types do |t|
+    create_table :models do |t|
       t.string :name
       t.string :synonym
 

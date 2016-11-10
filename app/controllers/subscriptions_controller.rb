@@ -18,15 +18,15 @@ class SubscriptionsController < ApplicationController
   # GET /subscriptions/new
   def new
     @subscription = Subscription.new
-    @brands = Brand.all
+    @makes = Make.all
   end
 
   # GET /subscriptions/1/edit
   def edit
-    @brands = Brand.all.to_a
-    @current_type_id = @subscription.type_id
-    @current_brand_id = Brand.find(Type.find(@current_type_id).brand_id).id
-    @types = Type.where(brand_id: @current_brand_id).to_a
+    @makes = Make.all.to_a
+    @current_model_id = @subscription.model_id
+    @current_make_id = Make.find_by_model_id @current_model_id
+    @models = Model.find_by_make_id @current_make_id
   end
 
   # POST /subscriptions
@@ -68,11 +68,12 @@ class SubscriptionsController < ApplicationController
     end
   end
 
-  def select_type
-    brand_id=params[:brand]
-    @types = (Type.where(brand_id: brand_id)).to_a
-    render partial: 'select_type', object: @types
+  def select_model
+    make_id=params[:make]
+    @models = Model.find_by_make_id make_id
+    render partial: 'select_model', object: @models
   end
+
 
   private
     def run_telbot
@@ -88,8 +89,8 @@ class SubscriptionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def subscription_params
-      params[:subscription][:type_id]=params[:type]
+      params[:subscription][:model_id]=params[:model]
       params[:subscription][:user_id] = current_user.id
-      params.require(:subscription).permit(:max_price, :min_year, :broken, :type_id, :user_id)
+      params.require(:subscription).permit(:max_price, :min_year, :broken, :model_id, :user_id)
     end
 end

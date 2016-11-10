@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161108222740) do
+ActiveRecord::Schema.define(version: 20161110132107) do
 
   create_table "ads", force: :cascade do |t|
     t.date     "date"
@@ -27,12 +27,22 @@ ActiveRecord::Schema.define(version: 20161108222740) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "brands", force: :cascade do |t|
+  create_table "makes", force: :cascade do |t|
     t.string   "name"
     t.string   "synonym"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "models", force: :cascade do |t|
+    t.string   "name"
+    t.string   "synonym"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "make_id"
+  end
+
+  add_index "models", ["make_id"], name: "index_models_on_make_id"
 
   create_table "regions", force: :cascade do |t|
     t.string   "name"
@@ -46,11 +56,11 @@ ActiveRecord::Schema.define(version: 20161108222740) do
     t.boolean  "broken"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "type_id"
+    t.integer  "model_id"
     t.integer  "user_id"
   end
 
-  add_index "subscriptions", ["type_id"], name: "index_subscriptions_on_type_id"
+  add_index "subscriptions", ["model_id"], name: "index_subscriptions_on_model_id"
   add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id"
 
   create_table "towns", force: :cascade do |t|
@@ -59,16 +69,6 @@ ActiveRecord::Schema.define(version: 20161108222740) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "types", force: :cascade do |t|
-    t.string   "name"
-    t.string   "synonym"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "brand_id"
-  end
-
-  add_index "types", ["brand_id"], name: "index_types_on_brand_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "username",                           null: false

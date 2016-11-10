@@ -1,6 +1,12 @@
 p#notice = notice
 
 p
+  strong Make:
+  = @subscription.make
+p
+  strong Model:
+  = @subscription.model
+p
   strong Max price:
   = @subscription.max_price
 p
@@ -9,9 +15,6 @@ p
 p
   strong Broken:
   = @subscription.broken
-p
-  strong Type:
-  = @subscription.type_id
 
 = link_to 'Edit', edit_subscription_path(@subscription)
 '|

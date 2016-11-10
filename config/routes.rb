@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'subscriptions/select_type', to: 'subscriptions#select_type'
+  get 'subscriptions/select_model', to: 'subscriptions#select_model'
   resources :subscriptions
   root to: 'subscriptions#index'
   # The priority is based upon order of creation: first created -> highest priority.

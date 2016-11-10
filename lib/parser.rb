@@ -43,10 +43,10 @@ module Par
 
     #        Выбирает пользователей, подписки которых совпадают с найденым автомобилем и
     def self.search_overlap (ad)
-      type = Type.find_by_name(ad.model)
-      return if type.nil?
-      type_id = type.id
-      subs = Subscription.where( "type_id IN (?, ?) AND max_price >= ? AND min_year <= ?", type_id, 0, ad.price, ad.year)
+      model = Model.find_by_name(ad.model)
+      return if model.nil?
+      model_id = model.id
+      subs = Subscription.overlap(model_id, ad.price, ad.year)
       unless subs.blank?
         users=subs.pluck(:user_id).uniq
         if users && !users.empty?

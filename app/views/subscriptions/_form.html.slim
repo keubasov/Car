@@ -7,6 +7,13 @@
           li = message
 
   .field
+    = render partial: 'select_make', object: @makes
+  #models.field
+    -if @models
+      = render partial: 'select_model', object: @models
+    -else
+      = select_tag 'model'
+  .field
     = f.label :max_price
     = f.number_field :max_price, max: 3000000, value: 500000
   .field
@@ -15,13 +22,7 @@
   .field
     = f.label :broken
     = f.check_box :broken
-  .field
-    = render partial: 'select_brand', object: @brands
-  #types.field
-    -if @types
-      = render partial: 'select_type', object: @types
-    -else
-      = select_tag 'type'
+
   .actions = f.submit
 
 

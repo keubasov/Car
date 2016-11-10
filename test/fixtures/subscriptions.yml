@@ -4,9 +4,9 @@ one:
   max_price: 1
   min_year: 1
   broken: false
-  type_id: 1
+  model_id: 1
 two:
   max_price: 1
   min_year: 1
   broken: false
-  type_id: 1
+  model_id: 1
