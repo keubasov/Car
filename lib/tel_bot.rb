@@ -25,6 +25,7 @@ class Tel_bot
             end
           end
           send_cars http
+          sleep 1
         end #loop
       end# thread
     end#net.http
@@ -91,12 +92,12 @@ class Tel_bot
    until @@mes_queue.empty?
      obj = @@mes_queue.pop
      ad = obj[:a]
-     users = obj[:u]
-     continue if !ad || !users
-     users.each do |user|
-       user = User.where "id = ? AND chat_id != ?", user, 0
-       if user.any?
-         user=user.first
+     users_ids = obj[:ids]
+     continue if !ad || !users_ids
+     users_ids.each do |id|
+       user = User.on_user(id)
+       if user
+         byebug
          text = "#{ad.make}  #{ad.model}  #{ad.year}года цена #{ad.price}руб #{ad.link}"
          http.post SEND_MESSAGE_PATH, "chat_id=#{user.chat_id}&text=#{text}parse_mode=html"
        end
@@ -104,63 +105,4 @@ class Tel_bot
    end
   end
 
-
 end
-
-
-=begin
-
-
-  def self.respond
-    Thread.new do
-      Telegram::Bot::Client.run('134117111:AAE7J1Z4iwR4Ql0-V_I3JyldNwcyMOs-q2s') do |bot|
-        while true do
-          bot.listen do |message|
-            name=message.from.username
-            chat_id = message.chat.id
-            user=User.find_by_t_username name
-            if user
-              case message.text
-
-                when '/auth'
-                  user.update verified: true
-                  bot.api.send_message(chat_id: chat_id, text: "Регистрация завершена успешно, теперь Вы можете создавать подписки.")
-
-                when '/start'
-                  user.update chat_id: chat_id
-                  bot.api.send_message(chat_id: chat_id, text: 'Рассылка запущена!')
-
-                when '/stop'
-                  user.update chat_id: 0
-                  bot.api.send_message(chat_id: chat_id, text:'Рассылка остановлена!')
-
-              end #case
-            else
-              bot.api.send_message(chat_id: chat_id, text: "К сожалению, пользователь #{name} не обнаружен")
-            end  #if
-          end   #bot.listen
-          begin
-            car_user=@@mes_queue.pop(non_block = true)
-          rescue
-            car_user=nil
-          else
-            send_telegram_messages car_user, bot
-          end
-
-        end  #while
-      end   #Client.run
-
-    end #thread
-  end#respond
-
-  def self.send_telegram_messages (car_users, bot)
-      car_users[:u].each do |user_id|
-        user=User.find user_id
-        if user.chat_id !=0
-          car= car_user[:c]
-          bot.api.send_message(chat_id: user.chat_id, text: "#{car.make}  #{car.model} #{car.price} #{car.mileage}")
-        end
-      end
-  end
-
-=end

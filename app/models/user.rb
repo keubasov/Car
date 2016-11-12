@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
 
   has_many :subscriptions, dependent: :destroy
 
+  def self.on_user (id)
+    (User.where 'id = ? AND chat_id != 0', id).first
+  end
   def email_required?
     false
   end

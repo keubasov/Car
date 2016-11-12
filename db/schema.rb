@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161110132107) do
+ActiveRecord::Schema.define(version: 20161112015716) do
 
   create_table "ads", force: :cascade do |t|
     t.date     "date"
@@ -20,12 +20,15 @@ ActiveRecord::Schema.define(version: 20161110132107) do
     t.boolean  "broken"
     t.string   "make"
     t.string   "model"
-    t.string   "region"
     t.integer  "site_id"
     t.string   "link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "region_id"
   end
+
+  add_index "ads", ["region_id"], name: "index_ads_on_region_id"
+  add_index "ads", ["site_id"], name: "index_ads_on_site_id", unique: true
 
   create_table "makes", force: :cascade do |t|
     t.string   "name"

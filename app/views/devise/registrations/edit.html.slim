@@ -3,15 +3,19 @@ h2
 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
   = devise_error_messages!
   .field
-    = f.label :email
+    = f.label :username
     br
-    = f.email_field :email, autofocus: true
-    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+    = f.text_field :username, autofocus: true
+  /-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
     div
       | Currently waiting confirmation for: #{resource.unconfirmed_email}
   .field
+    = f.label :t_username
+    br
+    = f.text_field :t_username
+  .field
     = f.label :password
-    i (leave blank if you don't want to change it)
+    <i>(leave blank if you don't want to change it)</i>
     br
     = f.password_field :password, autocomplete: 'off'
     - if @minimum_password_length
@@ -25,7 +29,7 @@ h2
     = f.password_field :password_confirmation, autocomplete: 'off'
   .field
     = f.label :current_password
-    i (we need your current password to confirm your changes)
+    <i>(we need your current password to confirm your changes)</i>
     br
     = f.password_field :current_password, autocomplete: 'off'
   .actions
