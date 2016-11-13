@@ -5,11 +5,16 @@ class ApplicationController < ActionController::Base
 
   # Добавляем поля в контроллер devise
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_locale
 
 
   protected
   # поле t_username используется только при регистрации
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :t_username])
+  end
+
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
   end
 end

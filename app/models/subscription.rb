@@ -1,6 +1,13 @@
 class Subscription < ActiveRecord::Base
-  belongs_to  :user
+
+  belongs_to :user
+  belongs_to :model
   validates :model_id, presence: true
+  validates :max_price, :min_year, :model_id, :user_id, presence: true
+  validates :max_price, inclusion: {in: 10000 .. 3000000}
+  validates :min_year, inclusion: {in: 1980 .. Date.current.year}
+
+
   def model
     Model.where(id: self.model_id).pluck(:name).first || ''
   end

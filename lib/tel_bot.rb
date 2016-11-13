@@ -25,7 +25,7 @@ class Tel_bot
             end
           end
           send_cars http
-          sleep 1
+          sleep 10
         end #loop
       end# thread
     end#net.http
@@ -97,7 +97,6 @@ class Tel_bot
      users_ids.each do |id|
        user = User.on_user(id)
        if user
-         byebug
          text = "#{ad.make}  #{ad.model}  #{ad.year}года цена #{ad.price}руб #{ad.link}"
          http.post SEND_MESSAGE_PATH, "chat_id=#{user.chat_id}&text=#{text}parse_mode=html"
        end

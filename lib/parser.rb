@@ -44,7 +44,7 @@ module Par
               end #unless
             end #each trs
           end  #each page_num
-          sleep 1
+          sleep 10
         end   #loop
       end   #Thread
     end

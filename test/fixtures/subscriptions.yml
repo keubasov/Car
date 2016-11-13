@@ -1,12 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  max_price: 1
-  min_year: 1
-  broken: false
-  model_id: 1
-two:
-  max_price: 1
-  min_year: 1
-  broken: false
-  model_id: 1
+all:
+  max_price: 120000
+  min_year: 2002
+  model_id: 0
+  user_id: 1
+lada_vesta:
+  max_price: 200000
+  min_year: 2010
+  model_id: 705
+  user_id: 2

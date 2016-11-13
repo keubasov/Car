@@ -1,23 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  date: 2016-11-08
-  price: 1
-  year: MyString
-  broken: false
-  make: MyString
-  model: MyString
-  region: MyString
-  site_id: 1
-  link: MyString
+toyota:
+  date: <%= Date.today%>
+  price: 750000
+  year: 2010
+  make: Toyota
+  model: Corolla
+  region: Омская область
+  site_id: 250
+  link: http://drom.ru/toyota.html
 
-two:
-  date: 2016-11-08
-  price: 1
-  year: MyString
-  broken: false
-  make: MyString
-  model: MyString
-  region: MyString
-  site_id: 1
-  link: MyString
+vaz:
+  date: <%= Date.today%>
+  price: 110000
+  year: 2002
+  make: Лада
+  model: 2110
+  region: Иркутская область
+  site_id: 255
+  link: http://drom.ru/vaz.html

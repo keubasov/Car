@@ -4,15 +4,24 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one:
-  username: first
-  t_username: first
-  encrypted_password: pass
-# column: value
-# column: value
-#
-two:
-  username: second
-  t_username: second
-  encrypted_password: pass
-#  column: value
+clinton:
+  username: hillary
+  t_username: clinton
+  encrypted_password: pentagon
+  verified: false
+  chat_id: 200
+  sign_in_count: 0
+  created_at: <%= 5.year.ago.to_date %>
+  updated_at: <%= 1.week.ago.to_date %>
+  region_id: 15
+
+trump:
+  username: donald
+  t_username: trump
+  encrypted_password: whitehouse
+  verified: true
+  chat_id: 7
+  sign_in_count: 1
+  created_at: <%= 1.year.ago.to_date %>
+  updated_at: <%= 1.day.ago.to_date %>
+  region_id: 22

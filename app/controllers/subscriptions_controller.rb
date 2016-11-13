@@ -2,8 +2,8 @@ class SubscriptionsController < ApplicationController
   require 'tel_bot'
   require 'parser'
   before_action :set_subscription, only: [:show, :edit, :update, :destroy]
-  before_action :run_telbot, only: :index
-  before_action :run_parser, only: :index
+  #before_action :run_telbot, only: :index
+ # before_action :run_parser, only: :index
   # GET /subscriptions
   # GET /subscriptions.json
   def index
@@ -76,21 +76,23 @@ class SubscriptionsController < ApplicationController
 
 
   private
-    def run_telbot
-      @telbot ||=Tel_bot.run
-    end
-    def run_parser
-      @parser ||=Par::Parser.parse_cars
-    end
-    # Use callbacks to share common setup or constraints between actions.
-    def set_subscription
-      @subscription = Subscription.find(params[:id])
-    end
+  def run_telbot
+    @telbot ||=Tel_bot.run
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def subscription_params
-      params[:subscription][:model_id]=params[:model]
-      params[:subscription][:user_id] = current_user.id
-      params.require(:subscription).permit(:max_price, :min_year, :broken, :model_id, :user_id)
-    end
+  def run_parser
+    @parser ||=Par::Parser.parse_cars
+  end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_subscription
+    @subscription = Subscription.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def subscription_params
+    params[:subscription][:model_id]=params[:model]
+    params[:subscription][:user_id] = current_user.id
+    params.require(:subscription).permit(:max_price, :min_year, :model_id, :user_id)
+  end
 end
