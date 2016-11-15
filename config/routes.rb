@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
+  get 'help_pages/about'
+
+  get 'help_pages/how_it_works'
+
   devise_for :users
   get 'subscriptions/select_model', to: 'subscriptions#select_model'
+  get 'subscriptions/for_unsigned_users', to: 'subscriptions#for_unsigned_users'
   resources :subscriptions
+
   root to: 'subscriptions#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

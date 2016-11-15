@@ -18,9 +18,10 @@ html
         ==render 'layouts/auth'
     #content
       #left
-        =link_to 'Subscriptions', subscriptions_path
-        =link_to t(:how_it_works), 'how/how_it_works'
+        =link_to t(:how_it_works), help_pages_how_it_works_path
+        br
+        =link_to t(:subscriptions), subscriptions_path
       #main
         = yield
     footer.footer
-      h5 footer
+      h5 &copy 2016

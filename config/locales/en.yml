@@ -20,4 +20,16 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  cancel my account: 'Cancel my account'
+  forgot: 'Forgot your password?'
+  how_it_works: 'How it works'
+  leave blank: '(leave blank if you don''t want to change it)'
+  sign_in: 'Sign in'
+  sign_out: 'Sign out'
+  sign_up: 'Sign up'
+  subscriptions: 'Your subscriptions'
+  subscription_created: 'Subscription was successfully created.'
+  subscription_deleted: 'Subscription was successfully destroyed.'
+  subscription_updated: 'Subscription was successfully updated.'
+  unhappy: 'Unhappy?'
+  we need: '(we need your current password to confirm your changes)'

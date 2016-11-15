@@ -11,10 +11,18 @@ class ApplicationController < ActionController::Base
   protected
   # поле t_username используется только при регистрации
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :t_username])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :t_username, :region_id, :verified])
   end
 
   def set_locale
-    I18n.locale = params[:locale] || I18n.default_locale
+    logger.debug "* Accept-Language: #{request.env['HTTP_ACCEPT_LANGUAGE']}"
+    I18n.locale = extract_locale_from_accept_language_header
+    logger.debug "* Locale set to '#{I18n.locale}'"
+    #I18n.locale = params[:locale] || I18n.default_locale
+  end
+
+  private
+  def extract_locale_from_accept_language_header
+    request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
   end
 end

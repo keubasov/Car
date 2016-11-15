@@ -1,18 +1,26 @@
 p#notice = notice
 
 p
-  strong Make:
-  = @subscription.make
+  strong
+    =t('make')
+    |:
+  =< @subscription.make
 p
-  strong Model:
-  = @subscription.model
+  strong
+    =t('model')
+    |:
+  =< @subscription.model
 p
-  strong Max price:
-  = @subscription.max_price
+  strong
+    =t('max price')
+    |:
+  =< @subscription.max_price
 p
-  strong Min year:
-  = @subscription.min_year
+  strong
+    =t('min year')
+    |:
+  =< @subscription.min_year
 
-= link_to 'Edit', edit_subscription_path(@subscription)
+= link_to t('edit'), edit_subscription_path(@subscription)
 '|
-= link_to 'Back', subscriptions_path
+= link_to t('back'), subscriptions_path
