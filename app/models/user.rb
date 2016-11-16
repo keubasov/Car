@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+
+  after_initialize :default_values
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -6,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :subscriptions, dependent: :destroy
   belongs_to :region
 
-  validates :username, :t_username, :encrypted_password, :verified, :chat_id, :region_id, presence: true
+  validates :username, :t_username, :encrypted_password,  :chat_id, :region_id, presence: true
   validates :username, :t_username, length: {in: 3..30}
 
 
@@ -18,5 +20,8 @@ class User < ActiveRecord::Base
   end
   def email_changed?
     false
+  end
+  def default_values
+    self.verified ||= false
   end
 end

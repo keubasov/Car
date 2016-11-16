@@ -52,6 +52,7 @@ module Par
     #Выбирает пользователей, подписки которых совпадают с найденым автомобилем и
     # отправляет их список, вместе с самим объявлением в telegram
     def self.search_overlap (ad)
+
       users_ids = Subscription.users_to_sub(ad)
       unless users_ids.blank?
         Tel_bot.push ({a: ad, ids: users_ids})

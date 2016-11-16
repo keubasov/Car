@@ -1,28 +1,15 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+      The service is intended for instant distribution of new ads car,
+      for this you need to create a subscription, where you can specify the desired make and model,
+      as well as price and year         of     manufacture  cars.
 
-Things you may want to cover:
+      Newsletter comes to the messenger 'telegram' (who do not know this is an analogue 'whats up'),
+      so first you need to install it on your smartphone and register. Then register on our website
+      at the same time in the 'your name on 'telegram'' field  enter a value without the '@' sign.
 
-* Ruby version
+      After that you need to add a bot telegram: in the search bar, enter '@CarParser' and choose
+      from the list the first bot. To confirm registration bot sending a message '/ auth'.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+      Now you can create a subscription on our website. To start sending the bot send a message '/ start',
+      for suspend distribution '/ stop'. Good luck!

@@ -1,7 +1,6 @@
 h2 =t('sign_up')
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = devise_error_messages!
-  = f.hidden_field :verified, value: false
   .field
     = f.label :username
     = f.text_field :username, autofocus: true
@@ -25,3 +24,4 @@ h2 =t('sign_up')
   .actions
     = f.submit t('sign_up')
   = render "devise/shared/links"
+  =params

@@ -2,15 +2,15 @@ class SubscriptionsController < ApplicationController
   require 'tel_bot'
   require 'parser'
   before_action :set_subscription, only: [:show, :edit, :update, :destroy]
-  #before_action :run_telbot, only: :index
- # before_action :run_parser, only: :index
+  before_action :run_telbot, only: :index
+  before_action :run_parser, only: :index
   # GET /subscriptions
   # GET /subscriptions.json
   def index
     unless user_signed_in?
       redirect_to '/subscriptions/for_unsigned_users'
     end
-    @subscriptions = Subscription.all
+    @subscriptions = Subscription.where(user_id: current_user.id) if current_user
   end
 
   # GET /subscriptions/1

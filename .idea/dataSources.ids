@@ -78,7 +78,7 @@
       <column name="username" sqlType="VARCHAR" precision="0" scale="-1" nullable="false" jdbcType="12"/>
       <column name="t_username" sqlType="VARCHAR" precision="0" scale="-1" nullable="false" jdbcType="12"/>
       <column name="encrypted_password" sqlType="VARCHAR" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <column name="verified" sqlType="BOOLEAN" precision="0" scale="-1" nullable="false" jdbcType="4" def="J2Yn"/>
+      <column name="verified" sqlType="BOOLEAN" precision="0" scale="-1" nullable="false" jdbcType="4" def="J2ZhbHNlJw=="/>
       <column name="chat_id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4" def="MA=="/>
       <column name="reset_password_token" sqlType="VARCHAR" precision="0" scale="-1" nullable="true" jdbcType="12"/>
       <column name="reset_password_sent_at" sqlType="DATETIME" precision="0" scale="-1" nullable="true" jdbcType="12"/>
