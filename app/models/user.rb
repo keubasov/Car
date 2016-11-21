@@ -12,8 +12,9 @@ class User < ActiveRecord::Base
   validates :username, :t_username, length: {in: 3..30}
 
 
-  def self.on_user (id)
-    (User.where 'id = ? AND chat_id != 0', id).first
+  def self.user_chat (id)
+    return false unless user = (User.where 'id = ? AND chat_id != 0', id).first
+    user.chat_id
   end
   def email_required?
     false

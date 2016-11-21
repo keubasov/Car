@@ -1,21 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-toyota:
+Toyota:
   date: <%= Date.today%>
   price: 750000
   year: 2010
   make: Toyota
   model: Corolla
-  region: Омская область
+  region: Omsk
   site_id: 250
   link: http://drom.ru/toyota.html
 
-vaz:
+Vaz:
   date: <%= Date.today%>
   price: 110000
   year: 2002
   make: Лада
   model: 2110
-  region: Иркутская область
+  region: Moskow
   site_id: 255
   link: http://drom.ru/vaz.html

@@ -1,8 +1,9 @@
 require 'test_helper'
-
 class SubscriptionsControllerTest < ActionController::TestCase
+  include Devise::Test::ControllerHelpers
   setup do
-    @subscription = subscriptions(:one)
+    sign_in users(:Jack)
+    @subscription = subscriptions(:Vitz)
   end
 
   test "should get index" do
@@ -16,14 +17,6 @@ class SubscriptionsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create subscription" do
-    assert_difference('Subscription.count') do
-      post :create, subscription: {max_price: @subscription.max_price, min_year: @subscription.min_year, model_id: @subscription.model_id }
-    end
-
-    assert_redirected_to subscription_path(assigns(:subscription))
-  end
-
   test "should show subscription" do
     get :show, id: @subscription
     assert_response :success
@@ -32,11 +25,6 @@ class SubscriptionsControllerTest < ActionController::TestCase
   test "should get edit" do
     get :edit, id: @subscription
     assert_response :success
-  end
-
-  test "should update subscription" do
-    patch :update, id: @subscription, subscription: {  max_price: @subscription.max_price, min_year: @subscription.min_year, model_id: @subscription.model_id }
-    assert_redirected_to subscription_path(assigns(:subscription))
   end
 
   test "should destroy subscription" do

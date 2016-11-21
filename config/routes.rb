@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'help_pages/about'
 
   get 'help_pages/how_it_works'
+  get 'help_pages/about'
 
   devise_for :users
   get 'subscriptions/select_model', to: 'subscriptions#select_model'

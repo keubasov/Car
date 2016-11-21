@@ -1,9 +1,10 @@
 class SubscriptionsController < ApplicationController
   require 'tel_bot'
   require 'parser'
+  before_action :set_makes, only: [:new, :edit]
   before_action :set_subscription, only: [:show, :edit, :update, :destroy]
-  before_action :run_telbot, only: :index
-  before_action :run_parser, only: :index
+#  before_action :run_telbot, only: :index
+ # before_action :run_parser, only: :index
   # GET /subscriptions
   # GET /subscriptions.json
   def index
@@ -18,22 +19,20 @@ class SubscriptionsController < ApplicationController
   def show
   end
 
-  # GET /subscriptions/new
+ # GET /subscriptions/new
   def new
     @subscription = Subscription.new
-    @makes = Make.all
   end
 
-  # GET /subscriptions/1/edit
+ # GET /subscriptions/1/edit
   def edit
-    @makes = Make.all.to_a
     @current_model_id = @subscription.model_id
     @current_make_id = Make.find_by_model_id @current_model_id
     @models = Model.find_by_make_id @current_make_id
   end
 
-  # POST /subscriptions
-  # POST /subscriptions.json
+ # POST /subscriptions
+ # POST /subscriptions.json
   def create
     @subscription = Subscription.new(subscription_params)
     respond_to do |format|
@@ -87,6 +86,9 @@ class SubscriptionsController < ApplicationController
     @parser ||=Par::Parser.parse_cars
   end
 
+  def set_makes
+    @makes = Make.all
+  end
   # Use callbacks to share common setup or constraints between actions.
   def set_subscription
     @subscription = Subscription.find(params[:id])

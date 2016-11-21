@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  id: 1
-  name: MyString
+Vitz:
+  name: Vitz
+  make: Toyota
   synonym: MyString
 
-two:
-  id: 2
-  name: MyString
+Juke:
+  name: Juke
+  make: Nissan
   synonym: MyString

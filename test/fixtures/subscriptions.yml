@@ -1,12 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-all:
+Vitz:
   max_price: 120000
   min_year: 2002
-  model_id: 0
-  user_id: 1
-lada_vesta:
+  model: Vitz
+  user: Jack
+Juke:
   max_price: 200000
   min_year: 2010
-  model_id: 705
-  user_id: 2
+  model: Juke
+  user: John
