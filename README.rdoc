@@ -1,15 +1,14 @@
 == README
+# Car
 
-      The service is intended for instant distribution of new ads car,
-      for this you need to create a subscription, where you can specify the desired make and model,
-      as well as price and year         of     manufacture  cars.
+The service is intended for instant distribution of new ads car.
 
-      Newsletter comes to the messenger 'telegram' (who do not know this is an analogue 'whats up'),
-      so first you need to install it on your smartphone and register. Then register on our website
-      at the same time in the 'your name on 'telegram'' field  enter a value without the '@' sign.
+## Registration
 
-      After that you need to add a bot telegram: in the search bar, enter '@CarParser' and choose
-      from the list the first bot. To confirm registration bot sending a message '/ auth'.
+* Newsletter comes to the messenger 'telegram' (who do not know this is an analogue 'whats up'), so first you need to install it on your smartphone and register.
+* Then register on our website at the same time in the `your name on 'telegram'` field  enter a value without the `@` sign.
+* After that you need to add a bot telegram: in the search bar, enter `@CarParser` and choose from the list the first bot. To confirm registration bot sending a message `/ auth`.
 
-      Now you can create a subscription on our website. To start sending the bot send a message '/ start',
-      for suspend distribution '/ stop'. Good luck!
+##Subscriptions
+
+Now you can create a subscription, where specify the desired make and model, as well as price and year of manufacture  cars on our website. To start sending the bot send a message `/ start`, for suspend distribution `/ stop`. Good luck!

@@ -1,6 +1,7 @@
 class SubscriptionsController < ApplicationController
   require 'tel_bot'
   require 'parser'
+  rescue_from ActiveRecord::RecordNotFound, with: :invalid_subscription
   before_action :set_makes, only: [:new, :edit]
   before_action :set_subscription, only: [:show, :edit, :update, :destroy]
   #before_action :run_telbot, only: :index
@@ -78,6 +79,10 @@ class SubscriptionsController < ApplicationController
 
 
   private
+  def invalid_subscription
+    logger.error "Attempt ot access invalid subscription #{params[:id]}"
+    redirect_to '/subscriptions', alert: t('invalid subscription')
+  end
   def run_telbot
     @telbot ||=Tel_bot.run
   end

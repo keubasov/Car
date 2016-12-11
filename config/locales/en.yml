@@ -58,6 +58,7 @@ en:
 
                               Now you can create a subscription on our website. To start sending the bot send a message ''/ start'',
                               for suspend distribution ''/ stop''. Good luck!'
+  invalid subscription: 'Inavalid subscription'
   leave blank: '(leave blank if you don''t want to change it)'
   listing subscriptions: 'Your subscriptions'
   log in : 'log in'
