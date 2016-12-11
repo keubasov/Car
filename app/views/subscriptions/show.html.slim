@@ -1,26 +1,33 @@
 p#notice = notice
 
-p
-  strong
-    =t('make')
-    |:
-  =< @subscription.make
-p
-  strong
-    =t('model')
-    |:
-  =< @subscription.model
-p
-  strong
-    =t('max price')
-    |:
-  =< @subscription.max_price
-p
-  strong
-    =t('min year')
-    |:
-  =< @subscription.min_year
 
-= link_to t('edit'), edit_subscription_path(@subscription)
-'|
-= link_to t('back'), subscriptions_path
+ul.list-group.width_15
+  li.list-group-item.list-group-item-info
+    strong
+      =t('make')
+    span.pull-right
+      b
+        = @subscription.make
+  li.list-group-item.list-group-item-info
+    strong
+      =t('model')
+    span.pull-right
+      b
+        = @subscription.model
+  li.list-group-item.list-group-item-info
+    strong
+      =t('max_price')
+    span.pull-right
+      b
+        = @subscription.max_price
+  li.list-group-item.list-group-item-info
+    strong
+      =t('min_year')
+    span.pull-right
+      b
+        = @subscription.min_year
+b
+  = link_to t('edit'), edit_subscription_path(@subscription)
+= t('or')
+b
+  =< link_to t('back'), subscriptions_path

@@ -1,26 +1,26 @@
 h1 = t('listing subscriptions')
-
-table
-  thead
-    tr
-      th =  t('max price')
-      th = t('min year')
-      th = t('make')
-      th = t('model')
-      th
-      th
-      th
-
-  tbody
-    - @subscriptions.each do |subscription|
+.table-responsive
+  table.table.table-striped
+    thead
       tr
-        td = subscription.max_price
-        td = subscription.min_year
-        td = subscription.make
-        td = subscription.model
-        td = link_to t('show'), subscription
-        td = link_to t('edit'), edit_subscription_path(subscription)
-        td = link_to t('destroy'), subscription, data: { confirm: 'Are you sure?' }, method: :delete
+        th =  t('max price')
+        th = t('min year')
+        th = t('make')
+        th = t('model')
+        th
+        th
+        th
+
+    tbody
+      - @subscriptions.each do |subscription|
+        tr
+          td = subscription.max_price
+          td = subscription.min_year
+          td = subscription.make
+          td = subscription.model
+          td = link_to "<span class = 'glyphicon glyphicon-eye-open' ></span>".html_safe, subscription
+          td = link_to "<span class = 'glyphicon glyphicon-pencil' ></span>".html_safe, edit_subscription_path(subscription)
+          td = link_to "<span class = 'glyphicon glyphicon-trash' ></span>".html_safe, subscription, data: { confirm: 'Are you sure?' }, method: :delete
 
 br
 

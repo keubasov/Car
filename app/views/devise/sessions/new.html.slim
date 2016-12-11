@@ -1,16 +1,17 @@
-h2
-  =t('log in')
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :username
-    = f.text_field :username, autofocus: true
-  .field
-    = f.label :password
-    = f.password_field :password, autocomplete: 'off'
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit t('log in')
-  = render 'devise/shared/links'
+fieldset
+  legend
+    =t('log in')
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .form-group
+      = f.label :username, class: 'control-label'
+      = f.text_field :username, autofocus: true, class: 'form-control width_15'
+    .form-group
+      = f.label :password, class: 'control-label'
+      = f.password_field :password, autocomplete: 'off', class: 'form-control width_15'
+    - if devise_mapping.rememberable?
+      .form-group
+        = f.check_box :remember_me
+        = f.label :remember_me, class: 'control-label'
+    .actions
+      = f.submit t('log in')
+    = render 'devise/shared/links'

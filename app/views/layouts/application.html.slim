@@ -7,21 +7,23 @@ html
     = csrf_meta_tags
 
   body
-    header.header
-      =image_tag 'car.png'
-      h1 Car
-    #subheader
-      #flash
-        p.notice =notice
-        p.alert =alert
-      #auth
+  .container-fluid
+    #header.row.page-header
+      .col-lg-12.text-center
+        h1 Car
+    #subheader.row
+      #flash.col-lg-8
+        -if notice.present?
+          p.notice.alert.alert-success =notice
+        -if alert.present?
+          p.alert.alert-danger =alert
+      .col-lg-4.text-right
         ==render 'layouts/auth'
-    #content
-      #left
-        =link_to t(:how_it_works), help_pages_how_it_works_path
-        br
-        =link_to t(:subscriptions), subscriptions_path
-      #main
+    #content.row
+      #left.col-lg-4.list-group
+        =link_to t(:how_it_works), help_pages_how_it_works_path, class: 'list-group-item list-group-item-info width_15'
+        =link_to t(:subscriptions), subscriptions_path, class: 'list-group-item list-group-item-info width_15'
+      #main.col-lg-8
         = yield
-    footer.footer
+    footer.text-center.navbar-fixed-bottom
       h5 &copy 2016

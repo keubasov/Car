@@ -1,2 +1,2 @@
-= label_tag 'make', t('make')
-= select_tag 'make', options_from_collection_for_select(@makes, 'id', 'name',@current_make_id)
+= label_tag 'make', t('make'), class: 'control-label'
+= select_tag 'make', options_from_collection_for_select(@makes, 'id', 'name',@current_make_id), class: 'form-control width_15'

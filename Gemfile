@@ -43,3 +43,4 @@ end
 gem 'devise'
 gem 'slim-rails'
 gem 'russian'
+gem 'bootstrap-sass'

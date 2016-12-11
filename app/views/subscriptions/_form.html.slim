@@ -6,20 +6,20 @@
         - @subscription.errors.full_messages.each do |message|
           li = message
 
-  .field
+  .form-group
     =render partial: 'select_make', object: @makes
-  #models.field
+  #models.form-group
     -if @models
       = render partial: 'select_model', object: @models
     -else
       = select_tag 'model'
-  .field
-    = f.label :max_price
-    = f.number_field :max_price, max: 3000000, value: 500000
-  .field
-    = f.label :min_year
-    = f.number_field :min_year, min: 1980, value: 2000
-  .actions = f.submit t('save subscription')
+  .form-group
+    = f.label :max_price, class: 'control-label'
+    = f.number_field :max_price, min: 10000, max: 3000000, class: 'form-control width_15'
+  .form-group
+    = f.label :min_year, class: 'control-label'
+    = f.number_field :min_year, min: 1980,  class: 'form-control width_15'
+  .actions = f.submit t('save subscription'), class: 'btn btn-primary'
 
 
 

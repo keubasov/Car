@@ -13,58 +13,15 @@
  *= require_tree .
  *= require_self
  */
-  .inline {
-    display: inline;
-  }
-  body {
-    display: flex;
-    flex-direction: column;
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
-    .header {
-      background-color: bisque;
-      display: flex;
-      justify-content: flex-start;
-
-      h1 {
-        margin: auto;
-      }
-      img {
-        height: 100px;
-        width: 100px;
-      }
-    }
-    #subheader{
-      background-color: burlywood;
-      display:flex;
-      flex-direction: row;
-      font-size: medium;
-      justify-content: space-between;
-      padding: 0.5%;
-    }
-    #content{
-      align-items: stretch;
-      display: flex;
-      flex-direction: row;
-      #left {
-        background-color: #c5d0e2;
-        flex-basis: 20%;
-        padding: 1% 1%;
-      }
-      #main {
-        background-color: antiquewhite;
-        flex-basis: 80%;
-        padding: 1%;
-      }
-    }
-
-    .footer{
-      background-color: bisque;
-      text-align: center;
-      padding: 1%;
-
-    }
-  }
-
-
-
-
+.width_15{
+  width: 15em !important;
+}
+#header{
+  background-color: #eff7f4;
+}
+body{
+  background-color: #f7f9f8;
+}

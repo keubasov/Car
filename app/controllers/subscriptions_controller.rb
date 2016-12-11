@@ -3,8 +3,8 @@ class SubscriptionsController < ApplicationController
   require 'parser'
   before_action :set_makes, only: [:new, :edit]
   before_action :set_subscription, only: [:show, :edit, :update, :destroy]
-#  before_action :run_telbot, only: :index
- # before_action :run_parser, only: :index
+  #before_action :run_telbot, only: :index
+  #before_action :run_parser, only: :index
   # GET /subscriptions
   # GET /subscriptions.json
   def index

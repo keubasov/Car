@@ -1,2 +1,2 @@
-= label_tag 'model', t('model')
-= select_tag 'model', options_from_collection_for_select(@models, 'id', 'name', @current_model_id)
+= label_tag 'model', t('model'), class: 'control-label'
+= select_tag 'model', options_from_collection_for_select(@models, 'id', 'name', @current_model_id), class: 'form-control width_15'
