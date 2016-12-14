@@ -17,7 +17,7 @@ fieldset
 
     .form-group
       = f.label :region, class: 'control-label'
-      = f.select :region_id, options_for_select(Region.order(:name).map{|r| [r.name, r.id]}), {}, {class: 'form-control width_15'}
+      = f.select :region_id, options_for_select(Region.collection, @current_user.region_id), {}, {class: 'form-control width_15'}
 
     .form-group
       = f.label :password, class: 'control-label'
@@ -51,4 +51,3 @@ fieldset
   span.small
     = t('unhappy')
     = button_to t('cancel my account'), registration_path(resource_name), data: { confirm: 'Are you sure?' }, method: :delete, class: 'form-control width_15'
-

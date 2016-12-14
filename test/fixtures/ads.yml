@@ -1,6 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-Toyota:
+toyota:
   date: <%= Date.today%>
   price: 750000
   year: 2010
@@ -10,7 +10,7 @@ Toyota:
   site_id: 250
   link: http://drom.ru/toyota.html
 
-Vaz:
+vaz:
   date: <%= Date.today%>
   price: 110000
   year: 2002

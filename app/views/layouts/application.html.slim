@@ -20,10 +20,8 @@ html
       .col-lg-4.text-right
         ==render 'layouts/auth'
     #content.row
-      #left.col-lg-4.list-group
+      #left.col-lg-3.list-group
         =link_to t(:how_it_works), help_pages_how_it_works_path, class: 'list-group-item list-group-item-info width_15'
         =link_to t(:subscriptions), subscriptions_path, class: 'list-group-item list-group-item-info width_15'
-      #main.col-lg-8
+      #main.col-lg-9
         = yield
-    footer.text-center.navbar-fixed-bottom
-      h5 &copy 2016

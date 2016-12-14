@@ -17,7 +17,7 @@ class Subscription < ActiveRecord::Base
     Make.where(id: model.make_id).pluck(:name).first ||''
   end
 
-  #Выбираем подписки, условиям которых удовлетворяет объявление  о продаже авто
+  #Выбираем пользователей,чьи подписки удовлетворяют условиям объявлений
   def self.users_to_sub (ad)
     model_id = Model.find_id_by_name(ad.model)
     return [] unless model_id

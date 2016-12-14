@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-Vitz:
+vitz:
   max_price: 120000
   min_year: 2002
   model: Vitz
   user: Jack
-Juke:
+juke:
   max_price: 200000
   min_year: 2010
   model: Juke

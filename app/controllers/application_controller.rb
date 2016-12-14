@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
   # поле t_username используется только при регистрации
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :t_username, :region_id, :verified])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:username, :t_username, :region_id, :verified])
   end
 
   def set_locale
