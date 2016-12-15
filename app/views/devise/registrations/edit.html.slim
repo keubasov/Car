@@ -10,7 +10,6 @@ fieldset
     /-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
       div
         | Currently waiting confirmation for: #{resource.unconfirmed_email}
-
     .form-group
       = f.label :t_username, class: 'control-label'
       = f.text_field :t_username, class: 'form-control width_15'

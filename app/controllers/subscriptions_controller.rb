@@ -1,15 +1,13 @@
 class SubscriptionsController < ApplicationController
-  require 'tel_bot'
-  require 'parser'
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_subscription
+  before_action :check_auth
   before_action :set_makes, only: [:new, :edit]
   before_action :set_subscription, only: [:show, :edit, :update, :destroy]
+  before_action :check_access, only: [:show, :edit, :update, :destroy]
   # GET /subscriptions
   # GET /subscriptions.json
   def index
-    unless user_signed_in?
-      redirect_to '/subscriptions/for_unsigned_users'
-    end
+    redirect_to help_pages_how_it_works_path, notice: t('have_to_login') unless current_user
     @subscriptions = Subscription.where(user_id: current_user.id) if current_user
   end
 
@@ -79,7 +77,11 @@ class SubscriptionsController < ApplicationController
   private
   def invalid_subscription
     logger.error "Attempt to access invalid subscription #{params[:id]}"
-    redirect_to '/subscriptions', alert: t('invalid subscription')
+    if current_user
+      redirect_to subscriptions_path, alert: t('invalid subscription')
+    else
+      redirect_to help_pages_how_it_works_path
+    end
   end
 
   def set_makes
@@ -90,6 +92,18 @@ class SubscriptionsController < ApplicationController
     @subscription = Subscription.find(params[:id])
   end
 
+  #Незарегистрированным пользователям запрещено обращаться к подпискам
+  def check_auth
+    unless current_user
+      raise CanCan::AccessDenied, t('not_authorized')
+    end
+  end
+  #Проверяем, принадлежит ли подписка текущему пользователю
+  def check_access
+    unless @subscription.in? current_user.subscriptions
+      raise CanCan::AccessDenied, t('not_authorized')
+    end
+  end
   # Never trust parameters from the scary internet, only allow the white list through.
   def subscription_params
     params[:subscription][:model_id]=params[:model]

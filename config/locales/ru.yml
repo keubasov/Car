@@ -23,6 +23,7 @@ ru:
   edit: 'Изменить'
   editing subscription: 'Редактировать подписку'
   forgot: 'Забыли свой пароль?'
+  have_to_login: 'Войдите, чтобы редактировать подписки'
   how_it_works: 'Как это работает'
   how it works content: '
   <h3>-Для чего</h3>
@@ -72,6 +73,7 @@ ru:
   min year: 'Год от'
   model: 'Модель'
   new subscription: 'Создать подписку'
+  not_authorized: 'Вы не авторизованы для доступа к этой странице.'
   or: ' или'
   register now: 'Регистрируйтесь сейчас и создавайте новые подписки.'
   save subscription: 'Сохранить подписку'

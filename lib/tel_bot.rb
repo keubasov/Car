@@ -37,17 +37,22 @@ class Tel_bot
       Thread.new do
         update_id ||= 0
         loop do
-          updates = get_updates http, update_id
-          next unless updates.message == 'OK'
-          messages, update_id = get_messages updates, update_id
-          if messages
-            messages.each do |message|
-              request http, message
+          begin
+            updates = get_updates http, update_id
+            next unless updates.message == 'OK'
+            messages, update_id = get_messages updates, update_id
+            if messages
+              messages.each do |message|
+                request http, message
+              end
             end
+            send_cars http
+            @parser.parse_cars(@mes_queue)
+            sleep 10
+          rescue NameError => e
+            logger.debug e
+            next
           end
-          send_cars http
-          @parser.parse_cars(@mes_queue)
-          sleep 10
         end #loop
       end# thread
     end#net.http
@@ -88,7 +93,7 @@ class Tel_bot
     updates = updates['result']
     return false if updates.empty?
     update_id=updates.last['update_id']+1
-    updates.map do |update|
+    updates.each do |update|
       message = Message.new update['message']
       messages << message
     end
@@ -96,7 +101,7 @@ class Tel_bot
   end
 
       ################################################################
-      ###                                                         ####
+      ###     Отвечает на команды из 'telegram'                   ####
       ################################################################
 
 

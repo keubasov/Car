@@ -5,10 +5,9 @@ Rails.application.routes.draw do
 
   devise_for :users
   get 'subscriptions/select_model', to: 'subscriptions#select_model'
-  get 'subscriptions/for_unsigned_users', to: 'subscriptions#for_unsigned_users'
   resources :subscriptions
 
-  root to: 'subscriptions#index'
+  root to: 'help_pages#how_it_works'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

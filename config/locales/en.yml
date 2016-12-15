@@ -44,6 +44,7 @@ en:
   edit: 'Edit'
   editing subscription: 'Editing subscription'
   forgot: 'Forgot your password?'
+  have_to_login: 'Need to login for editing subscriptions'
   how_it_works: 'How it works'
   how it works content:      ' The service is intended for instant distribution of new ads car,
                               for this you need to create a subscription, where you can specify the desired make and model,
@@ -67,6 +68,7 @@ en:
   min year: 'Year from'
   model: 'model'
   new subscription: 'New subscription'
+  not_authorized: 'You are not authorized to access this page.'
   or: ' or'
   register now: 'Register now, and create new subscriptions.'
   save subscription: 'Save subscription'

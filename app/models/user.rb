@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-
+  ROLES = %i[admin subscriber banned]
   after_initialize :default_values
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

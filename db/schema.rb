@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161116113327) do
+ActiveRecord::Schema.define(version: 20161215125008) do
 
   create_table "ads", force: :cascade do |t|
     t.date     "date",       null: false
@@ -72,22 +72,23 @@ ActiveRecord::Schema.define(version: 20161116113327) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",                               null: false
-    t.string   "t_username",                             null: false
-    t.string   "encrypted_password",                     null: false
-    t.boolean  "verified",               default: false, null: false
-    t.integer  "chat_id",                default: 0,     null: false
+    t.string   "username",                                      null: false
+    t.string   "t_username",                                    null: false
+    t.string   "encrypted_password",                            null: false
+    t.boolean  "verified",               default: false,        null: false
+    t.integer  "chat_id",                default: 0,            null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count",          default: 0,            null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-    t.integer  "region_id",                              null: false
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
+    t.integer  "region_id",                                     null: false
+    t.string   "role",                   default: "subscriber", null: false
   end
 
   add_index "users", ["region_id"], name: "index_users_on_region_id"
